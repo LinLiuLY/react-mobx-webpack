@@ -1,5 +1,7 @@
 import _ from 'lodash';
 
+import css from 'bootstrap/dist/css/bootstrap.css';
+
 var moment = require('moment');
 
 const t = 1 + 5;

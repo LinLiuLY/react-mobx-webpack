@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
 	entry: { 
 		main: './app/index.js' //Notice that we do not have an explicit vendor entry here
@@ -32,6 +34,17 @@ module.exports = {
 			//But since there are no more common modules 
 			//between them we end up with just the runtime code included in the manifest file
 			name: ['manifest']
-		})
-	]
+		}),
+		new ExtractTextPlugin('style.css')
+	],
+	module: {
+		rules: [{
+			test: /\.css$/,
+			// use: [ 'style-loader', 'css-loader' ]
+			use: ExtractTextPlugin.extract({
+				fallback: 'style-loader',
+				use: 'css-loader'
+			})
+		}]
+	}
 };
