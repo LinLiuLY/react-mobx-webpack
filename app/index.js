@@ -1,7 +1,8 @@
 import _ from 'lodash';
 
 var moment = require('moment');
-console.log(moment().format());
+
+const t = 1 + 5;
 
 function component () {
   var element = document.createElement('div');
