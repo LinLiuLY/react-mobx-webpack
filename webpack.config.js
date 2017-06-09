@@ -5,9 +5,11 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	entry: { 
-		main: './app/index.js' //Notice that we do not have an explicit vendor entry here
+		index: './app/index.js', //Notice that we do not have an explicit vendor entry here
 		// vendor: ['moment', 'lodash', 'backbone'],
-		// admin: './app/admin.js'
+		// admin: './app/admin.js',
+		index_es2015: './app/index-es2015.js',
+		index_es2017: './app/index-es2017.js'
 	},
 	output: {
 		filename: '[name].[chunkhash].js',
@@ -48,7 +50,28 @@ module.exports = {
 			}
 			)
 		},
-	    { test: /\.(woff2?|ttf|eot|svg)$/, use: 'url-loader?limit=10000' }
+	    { 
+	    	test: /\.(woff2?|ttf|eot|svg)$/, 
+	    	use: 'url-loader?limit=10000' 
+	    }, 
+	    {
+	    	test: /\.js$/,
+	    	exclude: /(node_modules)/,
+	    	use: [ {
+	    		loader: 'babel-loader',
+	    		options: {
+	    		 presets: [['es2015', {module: false}]],
+	    		 plugins: [
+	    		 'syntax-async-functions',
+                 'syntax-dynamic-import',
+                 'transform-async-to-generator',
+                 'transform-regenerator',
+                 'transform-runtime'
+	    		 ] 
+	    	    }
+	    	}
+	    	]
+	    }
 	    ]
 	}
 };
