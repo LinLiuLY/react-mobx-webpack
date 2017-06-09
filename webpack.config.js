@@ -38,13 +38,17 @@ module.exports = {
 		new ExtractTextPlugin('style.css')
 	],
 	module: {
-		rules: [{
+		rules: [
+		{
 			test: /\.css$/,
 			// use: [ 'style-loader', 'css-loader' ]
 			use: ExtractTextPlugin.extract({
 				fallback: 'style-loader',
-				use: 'css-loader'
-			})
-		}]
+				use: 'css-loader',
+			}
+			)
+		},
+	    { test: /\.(woff2?|ttf|eot|svg)$/, use: 'url-loader?limit=10000' }
+	    ]
 	}
 };
