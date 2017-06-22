@@ -3,6 +3,8 @@ var path = require('path');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ChunkManifestPlugin = require("chunk-manifest-webpack-plugin");
+var WebpackChunkHash = require("webpack-chunk-hash");
 
 module.exports = {
   entry: {
@@ -16,6 +18,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
+    chunkFilename: "[name].[chunkhash].js",
     publicPath: 'dist',
     sourceMapFilename: '[name].map'
   },
@@ -69,16 +72,21 @@ module.exports = {
   },
 
  plugins: [
-
     new webpack.optimize.CommonsChunkPlugin({
       name: 'node_module_vendor',
       minChunks: function(module) {
         return module.context && module.context.indexOf('node_modules') !== -1;
       }
     }),
-
     new webpack.optimize.CommonsChunkPlugin({
       name: ['manifest']
+    }),
+    new webpack.HashedModuleIdsPlugin(),
+    new WebpackChunkHash(),
+    new ChunkManifestPlugin({
+      filename: "chunk-manifest.json",
+      manifestVariable: "webpackManifest",
+      inlineManifest: true
     })
   ]
 }
