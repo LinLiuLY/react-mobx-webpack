@@ -6,6 +6,12 @@ const CommonConfig = require('./webpack.common.js');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = Merge(CommonConfig, {
+  output: {
+    path: path.join(__dirname, 'public'),
+    filename: '[name].js',
+//    publicPath: 'dist',
+    sourceMapFilename: '[name].map'
+  },
 	devtool: 'cheap-module-source-map',
 	devServer: {
 	    port: 7777,
@@ -17,12 +23,12 @@ module.exports = Merge(CommonConfig, {
 	    //   filename: '[name].js.map',
 	    //   exclude: ['vendor.js', 'manifest.js']
 	    // })
-	    // new HtmlWebpackPlugin({
-     //      title: 'My App',
-     //      filename: 'app.html',
-     //      template:  path.join(__dirname, 'index.html'),
-     //      chunks: ['main', 'vendor', 'manifest'],
-     //      inject: 'body'
-     //   })
+	     new HtmlWebpackPlugin({
+           title: 'My App',
+           filename: 'App.html',
+           template: path.join(__dirname, 'src', 'index.html')
+//           inject: 'body'
+//           chunks: ['main', 'vendor', 'manifest'],
+        })
 	]
 });

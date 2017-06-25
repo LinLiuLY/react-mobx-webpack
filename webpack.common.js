@@ -3,20 +3,12 @@ var path = require('path');
 
 module.exports = {
   entry:  {
-    main: path.join(__dirname, '/src/main.js')
+    main: path.join(__dirname, '/src/index.js')
   },
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
-    publicPath: 'dist',
-    sourceMapFilename: '[name].map'
-  },
-
   resolve: {
     extensions: ['.ts', '.js', '.json'],
     modules: [path.join(__dirname, 'src'), 'node_modules']
   },
-
   module: {
     rules: [
       {
@@ -48,7 +40,7 @@ module.exports = {
                 'transform-react-jsx',
                 'transform-class-properties',
                 'transform-decorators-legacy'
-               ] 
+               ]
           }
         }]
       }

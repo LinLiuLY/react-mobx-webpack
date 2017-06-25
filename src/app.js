@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import appState from 'AppState';
+import AppStoreInfo from './store/AppStore';
 
 @observer
 class App extends Component {
   render() {
-    appState.testCount = 2;
+    AppStoreInfo.testCount = 2;
 
     return (
       <div>
         <button>
-          Seconds passed: {appState.testCount}
+          Seconds passed: {AppStoreInfo.testCount}
         </button>
       </div>
     );
   }
-  
+
 };
 
 export default App;
