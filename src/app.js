@@ -5,7 +5,7 @@ import AppStoreInfo from './store/AppStore';
 @observer
 class App extends Component {
   render() {
-    AppStoreInfo.testCount = 2;
+    AppStoreInfo.testCount = 12;
 
     return (
       <div>
