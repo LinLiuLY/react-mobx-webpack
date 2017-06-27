@@ -8,9 +8,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = Merge(CommonConfig, {
   output: {
     path: path.join(__dirname, 'public'),
-    filename: '[name].js',
+    filename: '[name].[hash].js',
 //    publicPath: 'dist',
-    sourceMapFilename: '[name].map'
+    sourceMapFilename: '[name].[hash].map'
   },
 	devtool: 'cheap-module-source-map',
 	devServer: {
@@ -26,9 +26,9 @@ module.exports = Merge(CommonConfig, {
 	     new HtmlWebpackPlugin({
            title: 'My App',
            filename: 'App.html',
-           template: path.join(__dirname, 'src', 'index.html')
-//           inject: 'body'
-//           chunks: ['main', 'vendor', 'manifest'],
+           template: path.join(__dirname, 'src', 'index.html'),
+           inject: 'body',
+           chunks: ['manifest', 'vendor', 'main']
         })
 	]
 });
