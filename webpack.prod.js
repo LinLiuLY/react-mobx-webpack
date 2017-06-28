@@ -11,9 +11,8 @@ module.exports = Merge(CommonConfig,{
     path: path.join(__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
     chunkFilename: "[name].[chunkhash].js",
-    publicPath: 'dist',
-    sourceMapFilename: '[name].map'
-  },	
+    publicPath: 'dist'
+  },
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
     new WebpackChunkHash(),
@@ -21,10 +20,6 @@ module.exports = Merge(CommonConfig,{
       filename: "chunk-manifest.json",
       manifestVariable: "webpackManifest",
       inlineManifest: true
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false
     }),
     new webpack.optimize.UglifyJsPlugin({
       beautify: false,
