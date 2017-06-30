@@ -1,5 +1,6 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry:  {
@@ -62,6 +63,13 @@ module.exports = {
      new webpack.optimize.CommonsChunkPlugin({
        name: 'manifest',
        minChunks: Infinity
+     }),
+     new HtmlWebpackPlugin({
+        title: 'My App',
+        filename: 'App.html',
+        template: path.join(__dirname, 'src', 'index.html'),
+        inject: 'body',
+        chunks: ['manifest', 'vendor', 'main']
      })
   ]
 }
