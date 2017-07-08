@@ -1,8 +1,6 @@
-FROM node:8.1.3-alpine
+FROM node:8.1.3-slim
 
 LABEL maintainer "liulin1987315@gmail.com"
-
-RUN npm install --global yarn
 
 ENV PROJECT_DIR=/app
 WORKDIR $PROJECT_DIR
