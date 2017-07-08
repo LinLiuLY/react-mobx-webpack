@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { observer } from 'mobx-react';
 import AppStoreInfo from './store/AppStore';
 
@@ -15,7 +15,6 @@ class App extends Component {
       </div>
     );
   }
-
 };
 
 export default App;
