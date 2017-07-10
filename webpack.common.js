@@ -33,16 +33,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: [{
-           loader: 'babel-loader',
-           options: {
-               presets: ['env'],
-               plugins: [
-                'transform-runtime',
-                'transform-react-jsx',
-                'transform-class-properties',
-                'transform-decorators-legacy'
-               ]
-          }
+           loader: 'babel-loader'
         }]
       }
     ]
