@@ -1,5 +1,5 @@
 {
-  "presets": ["env", "es2015","react"],
+  "presets": ["env"],
   "plugins": ["transform-runtime",
               "transform-react-jsx",
               "transform-class-properties",
