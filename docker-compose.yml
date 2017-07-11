@@ -1,0 +1,18 @@
+version: '3'
+services:
+  webapp-base:
+    build: .
+    image: webapp-base
+
+  dev:
+    image: webapp-base
+    environment:
+      - NODE_ENV=dev
+    ports:
+      - "127.0.0.1:9988:7777"
+    command: ["yarn", "start"]
+
+  test:
+    image: webapp-base
+    command: yarn test
+

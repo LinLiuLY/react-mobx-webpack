@@ -14,4 +14,4 @@ ENV NODE_ENV=dev \
     APP_PORT=7777
 
 EXPOSE $APP_PORT
-CMD yarn start
+
