@@ -1,11 +1,7 @@
 version: '3'
 services:
-  webapp-base:
-    build: .
-    image: webapp-base
-
   dev:
-    image: webapp-base
+    build: .
     environment:
       - NODE_ENV=dev
     ports:
@@ -13,6 +9,6 @@ services:
     command: ["yarn", "start"]
 
   test:
-    image: webapp-base
-    command: yarn test
+    build: .
+    command: ["yarn", "test"]
 

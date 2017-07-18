@@ -5,4 +5,5 @@ class AppStore {
 }
 
 const AppStoreInfo = new AppStore();
+
 export default AppStoreInfo;
