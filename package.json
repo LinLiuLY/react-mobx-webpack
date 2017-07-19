@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "rm -rf dist && NODE_ENV=dev webpack-dev-server --progress --inline --hot",
+    "start": "rm -rf dist && NODE_ENV=dev webpack-dev-server --host 0.0.0.0 --inline --content-base",
     "build": "rm -rf dist && NODE_ENV=prod node_modules/.bin/webpack -p --progress --colors",
     "test": "jest",
-    "check": "eslint src"
+    "check-style": "eslint src"
   },
   "keywords": [],
   "author": "",

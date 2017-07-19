@@ -12,9 +12,7 @@ module.exports = Merge(CommonConfig, {
   },
 	devtool: 'eval-source-map',
 	devServer: {
-	    port: 7777,
-	    host: 'localhost',
-	    hot: true
+	    port: 7000
     },
 	plugins: [
 	    // new webpack.SourceMapDevToolPlugin({
