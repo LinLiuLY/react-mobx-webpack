@@ -11,6 +11,19 @@ class App extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+  componentDidMount() {
+    console.log('Did Mount-----')
+    this.fetchUser().then((result) => this.setState({
+      userName: result
+    }));
+  }
+
+  fetchUser() {
+    return new Promise((resolve) => {
+      resolve("fetchName");
+    });
+  }
+
   handleInputChange(e) {
     this.setState({
       userName: e.target.value
