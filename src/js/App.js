@@ -12,16 +12,21 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('Did Mount-----')
-    this.fetchUser().then((result) => this.setState({
-      userName: result
-    }));
+    this.getUserName().then((result) =>
+      this.setState({
+        userName: result
+      })
+    );
   }
 
   fetchUser() {
     return new Promise((resolve) => {
-      resolve("fetchName");
+      setTimeout(() => resolve("fetchName"), 2000);
     });
+  }
+
+  async getUserName() {
+    return await this.fetchUser();
   }
 
   handleInputChange(e) {
@@ -39,6 +44,6 @@ class App extends Component {
       </div>
     );
   }
-};
+}
 
 export default App;
