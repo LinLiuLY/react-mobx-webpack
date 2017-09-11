@@ -5,12 +5,12 @@ import {observer, inject} from 'mobx-react';
 @observer
 class App extends React.Component {
 
-  handleInputChange(e) {
+  handleInputChange = (event) => {
     const {userStore} = this.props;
-    userStore.updateName(e.target.value);
+    userStore.updateName(event.target.value);
   }
 
-  handleClick() {
+  handleClick = () => {
     const {userStore} = this.props;
     userStore.createUser();
   }
@@ -20,8 +20,8 @@ class App extends React.Component {
 
     return (
       <div>
-        <input value={userStore.name} onChange={this.handleInputChange.bind(this)}/>
-        <button onClick={this.handleClick.bind(this)}/>
+        <input value={userStore.name} onChange={this.handleInputChange}/>
+        <button onClick={this.handleClick}/>
       </div>
     );
   }
