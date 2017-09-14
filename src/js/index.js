@@ -6,8 +6,9 @@ import userStore from 'stores/userStore';
 
 const stores = {userStore};
 
-render((
+render(
   <Provider {...stores}>
-    <App/>
-  </Provider>
-), document.getElementById('reactjs-app'));
+    <App />
+  </Provider>,
+  document.getElementById('reactjs-app'),
+);

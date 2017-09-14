@@ -7,7 +7,6 @@ class UserStore {
   updateName(name) {
     this.name = name;
   }
-
 }
 
 export default new UserStore();

@@ -4,8 +4,7 @@ import {observer, inject} from 'mobx-react';
 @inject('userStore')
 @observer
 class App extends React.Component {
-
-  handleInputChange = (event) => {
+  handleInputChange = event => {
     const {userStore} = this.props;
     userStore.updateName(event.target.value);
   };
@@ -15,10 +14,10 @@ class App extends React.Component {
 
     return (
       <div>
-        <input value={userStore.name} onChange={this.handleInputChange}/>
+        <input value={userStore.name} onChange={this.handleInputChange} />
       </div>
     );
   }
-};
+}
 
 export default App;

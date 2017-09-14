@@ -1,15 +1,38 @@
 {
   "rules": {
-    "quotes": [2, "single", "avoid-escape"],
+    "prettier/prettier": ["error", {
+      "singleQuote": true,
+      "trailingComma": "all",
+      "bracketSpacing": false,
+      "jsxBracketSameLine": true
+    }],
+    "quotes": [
+      2,
+      "single",
+      "avoid-escape"
+    ],
     "eqeqeq": 0,
-    "brace-style": [2, "stroustrup"],
+    "brace-style": [
+      2,
+      "stroustrup"
+    ],
     "eol-last": 0,
     "no-nested-ternary": 1,
-    "padded-blocks": [1, "never"],
-    "space-before-blocks": [1, "always"]
+    "padded-blocks": [
+      1,
+      "never"
+    ],
+    "space-before-blocks": [
+      1,
+      "always"
+    ]
   },
   "plugins": [
-      "react"
-   ],
-   "parser": "babel-eslint"
+    "react",
+    "prettier"
+  ],
+  "parser": "babel-eslint",
+  "extends": [
+    "prettier"
+  ]
 }
