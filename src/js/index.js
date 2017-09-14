@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'mobx-react';
-import App from 'component/App';
-import userStore from 'store/userStore';
+import App from 'components/App';
+import userStore from 'stores/userStore';
 
 const stores = {userStore};
 

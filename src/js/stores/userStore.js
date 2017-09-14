@@ -8,13 +8,6 @@ class UserStore {
     this.name = name;
   }
 
-  @action
-  createUser() {
-    Promise.resolve("updated name").then(action((updatedName) => {
-        this.name = updatedName;
-      })
-    );
-  }
 }
 
 export default new UserStore();
