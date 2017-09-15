@@ -52,10 +52,22 @@
     "webpack-merge": "^4.1.0"
   },
   "jest": {
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__test_utils__/fileMock.js",
-      "\\.(scss|css)$": "identity-obj-proxy"
-    },
-    "verbose": false
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      },
+      "moduleNameMapper": {
+        "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__test_utils__/fileMock.js",
+        "\\.(scss|css)$": "identity-obj-proxy"
+      },
+      "verbose": false
+    }
   }
 }
