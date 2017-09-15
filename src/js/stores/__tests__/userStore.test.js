@@ -1,4 +1,4 @@
-import userStore from 'userStore';
+import userStore from '../userStore';
 
 describe('User Store', () => {
   it('update name', () => {

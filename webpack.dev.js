@@ -21,4 +21,9 @@ module.exports = Merge(CommonConfig, {
 	    // })
     new webpack.NamedModulesPlugin()
 	]
+  // externals: {
+  //   'react/addons': true,
+  //   'react/lib/ExecutionEnvironment': true,
+  //   'react/lib/ReactContext': true,
+  // }
 });
