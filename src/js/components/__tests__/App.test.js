@@ -1,28 +1,17 @@
 import React from 'react';
-import {mount} from 'enzyme';
+import {shallow} from 'enzyme';
+import NameInput from '../NameInput';
 import App from '../App';
+import userStore from '../../stores/userStore';
 
-describe('App', () => {
-  let mockStore, wrapper;
-  beforeEach(() => {
-    mockStore = {
-      name: 'default name',
-      updateName: jest.fn(),
-    };
-    wrapper = mount(<App userStore={mockStore} />);
+describe(('App'), () => {
+  it(('should pass props'), () => {
+    const wrapper = shallow(<App/>);
+    expect(wrapper.props().userStore).toBe(userStore);
   });
 
-  it('should pass props', () => {
-    expect(wrapper.props().userStore).toBe(mockStore);
-  });
-
-  it('should render input', () => {
-    expect(wrapper.find('input').length).toBe(1);
-    expect(wrapper.find('input').get(0).value).toBe('default name');
-  });
-
-  it('should update input', () => {
-    wrapper.find('input').simulate('change');
-    expect(mockStore.updateName).toHaveBeenCalled();
+  it(('should render NameInput'), () => {
+    const wrapper = shallow(<App/>);
+    expect(wrapper.find(NameInput).length).toBe(1);
   });
 });

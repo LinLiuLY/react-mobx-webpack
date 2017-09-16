@@ -1,14 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {Provider} from 'mobx-react';
-import App from 'components/App';
-import userStore from 'stores/userStore';
+import App from './components/App';
 
-const stores = {userStore};
+render(<App/>, document.getElementById('root'));
 
-render(
-  <Provider {...stores}>
-    <App />
-  </Provider>,
-  document.getElementById('reactjs-app'),
-);

@@ -1,23 +1,18 @@
 import React from 'react';
-import {observer, inject} from 'mobx-react';
+import {Provider} from 'mobx-react';
+import NameInput from './NameInput';
+import userStore from '../stores/userStore';
 
-@inject('userStore')
-@observer
-class App extends React.Component {
-  handleInputChange = event => {
-    const {userStore} = this.props;
-    userStore.updateName(event.target.value);
-  };
-
+export default class App extends React.Component {
   render() {
-    const {userStore} = this.props;
+    const stores = {userStore};
 
     return (
-      <div>
-        <input value={userStore.name} onChange={this.handleInputChange} />
-      </div>
+      <Provider {...stores}>
+        <NameInput />
+      </Provider>
     );
   }
 }
 
-export default App;
+
