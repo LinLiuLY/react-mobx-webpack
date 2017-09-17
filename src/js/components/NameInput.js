@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 
 @inject('userStore')
@@ -19,5 +20,9 @@ class NameInput extends React.Component {
     );
   }
 }
+
+NameInput.wrappedComponent.propTypes = {
+  userStore: PropTypes.object.isRequired,
+};
 
 export default NameInput;
