@@ -1,19 +1,19 @@
 import React from 'react';
 import {mount} from 'enzyme';
-import NameInput from '../NameInput';
+import UserView from '../UserView';
 
-describe('NameInput', () => {
+describe('UserView', () => {
   let mockStore, wrapper;
   beforeEach(() => {
     mockStore = {
       name: 'default name',
       updateName: jest.fn(),
     };
-    wrapper = mount(<NameInput userStore={mockStore} />);
+    wrapper = mount(<UserView user={mockStore} />);
   });
 
   it('should pass props', () => {
-    expect(wrapper.props().userStore).toBe(mockStore);
+    expect(wrapper.props().user).toBe(mockStore);
   });
 
   it('should render input', () => {

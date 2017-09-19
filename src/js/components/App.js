@@ -1,15 +1,15 @@
 import React from 'react';
 import {Provider} from 'mobx-react';
-import NameInput from './NameInput';
-import userStore from '../stores/userStore';
+import UserView from './UserView';
+import User from '../stores/user';
 
 export default class App extends React.Component {
   render() {
-    const stores = {userStore};
+    let user = new User();
 
     return (
-      <Provider {...stores}>
-        <NameInput />
+      <Provider user={user}>
+        <UserView />
       </Provider>
     );
   }
