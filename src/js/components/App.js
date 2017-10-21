@@ -1,15 +1,15 @@
 import React from 'react';
-import {Provider} from 'mobx-react';
-import UserView from './UserView';
-import User from '../stores/user';
+import {observer, Provider} from 'mobx-react';
+import UsersView from './UsersView';
+import userStore from '../stores/userStore';
 
+@observer
 export default class App extends React.Component {
   render() {
-    let user = new User();
 
     return (
-      <Provider user={user}>
-        <UserView />
+      <Provider userStore={userStore}>
+        <UsersView />
       </Provider>
     );
   }
