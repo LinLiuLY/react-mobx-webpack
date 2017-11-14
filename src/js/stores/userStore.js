@@ -4,7 +4,6 @@ import uuid from 'uuid';
 useStrict(true);
 
 class UserStore {
-
   constructor() {
     this.users = observable([]);
   }
@@ -13,16 +12,15 @@ class UserStore {
   add() {
     this.users.push({
       id: uuid(),
-      name: 'default name'
+      name: 'default name',
     });
   }
 
   @action
   update(id, name) {
-    const user = this.users.find(user => user.id === id );
+    const user = this.users.find(user => user.id === id);
     user.name = name;
   }
-
 }
 
 const userStore = new UserStore();
